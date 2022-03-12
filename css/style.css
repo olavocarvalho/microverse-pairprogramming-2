@@ -162,3 +162,8 @@ color: #8000ff;
     padding: 1rem 2rem;
     border-radius: 2px;
 }
+
+#navbar{
+  position: fixed;
+
+}
