@@ -1,3 +1,27 @@
+/* Base reset */
+* {
+  margin: 0;
+  padding: 0;
+}
+
+/* box-sizing and font sizing */
+*,
+*::before,
+*::after {
+  box-sizing: inherit;
+}
+
+html {
+  box-sizing: border-box;
+
+  /* Set font size for easy rem calculations
+   * default document font size = 16px, 1rem = 16px, 100% = 16px
+   * (100% / 16px) * 10 = 62.5%, 1rem = 10px, 62.5% = 10px
+  */
+  font-size: 62.5%;
+  scroll-behavior: smooth;
+}
+
 body {
     font-family: sans-serif;
     font-size: 1.2rem; /* 18px */
@@ -5,23 +29,64 @@ body {
     line-height: 1.2;
     color: #fff;
     background-color: black;
-  }
+}
 
-  #welcome-section {
-    display: flex;
-    flex-direction: column;
+.nav {
+  display: flex;
+  justify-content: flex-end;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background: #3b019f;
+  z-index: 9999;
+}
+nav ul {
+  list-style-type: none;
+}
+
+.nav-list {
+  display: flex;
+  margin-right: 2rem;
+}
+
+@media (max-width: 28.75em) {
+  .nav {
     justify-content: center;
-    align-items: center;
-    width: 100%;
-    height: 100vh;
-    background-color: #000;
-    background-image: linear-gradient(66deg, #3b019f 0%, #181719 100%);
   }
 
-  #welcome-section h1 {
-      color: white;
-      font-size: 4.8rem;
+  .nav-list {
+    margin: 0 1rem;
   }
+}
+
+.nav-list a {
+  display: block;
+  font-size: 2.2rem;
+  padding: 2rem;
+  text-decoration: none;
+  color: rgba(255, 255, 255, .7);
+}
+
+.nav-list a:hover {
+  color: #fff;
+}
+
+#welcome-section {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100vh;
+  background-color: #000;
+  background-image: linear-gradient(66deg, #3b019f 0%, #181719 100%);
+}
+
+#welcome-section h1 {
+    color: white;
+    font-size: 4.8rem;
+}
 
 
   .projects-section {
@@ -55,6 +120,15 @@ width: 100%;
 max-width: 1280px;
 margin: 0 auto;
 margin-bottom: 6rem;
+}
+@media (max-width: 30.625em) {
+  .projects-section {
+    padding: 3rem 1rem;
+  }
+
+  .projects-grid {
+    grid-template-columns: 1fr;
+  }
 }
 
 .project {
